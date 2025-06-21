@@ -3,6 +3,8 @@
 //
 #include <gtest/gtest.h>
 
+#include "data.h"
+
 TEST(HelloWorldTest, BasicAssertion) {
     EXPECT_EQ(1, 1);
 }

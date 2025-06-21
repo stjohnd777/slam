@@ -54,7 +54,13 @@ RUN apt-get update && apt-get install -y \
     python3-dev \
     ipython \
     && rm -rf /var/lib/apt/lists/*
- 
+
+
+RUN apt-get update && apt-get install -y \
+ libxtensor-dev \
+ libxtl-dev \
+&& rm -rf /var/lib/apt/lists/*
+
 # Upgrade pip and install scientific packages
 RUN pip3 install --upgrade pip setuptools wheel
  
