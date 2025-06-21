@@ -1,10 +1,10 @@
 #include <iostream>
 using namespace std;
 
-#include "n_dims/probablity_distibution.h"
-#include "n_dims/world.h"
-#include "n_dims/robot.h"
-#include "n_dims/state.h"
+#include "../../header/probability_distribution.h"
+#include "../../header/world_tensor.h"
+#include "../n_dims/robot.h"
+#include "../../header/state.h"
 // TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 int main() {
@@ -63,11 +63,27 @@ int main() {
 
     std::vector<size_t> moves{1};
 
-    probability_distribution<float> test(std::vector<size_t>{5});
+    probability_distribution<float> dirac(std::vector<size_t>{5});
+    dirac(0) = 1;
+    dirac(1) = 0;
+    dirac(2) = 0;
+    dirac(3) = 0;
+    dirac(4) = 0;
+    cout << dirac({0}) << endl;
+    cout << dirac({1}) << endl;
+    cout << dirac({2}) << endl;
+    cout << dirac({3}) << endl;
+    cout << dirac({4}) << endl;
+    auto post = robot.move({1}, dirac);
+
+    cout << post({0}) << endl;
+    cout << post({1}) << endl;
+    cout << post({2}) << endl;
+    cout << post({3}) << endl;
+    cout << post({4}) << endl;
 
 
-   // posterior = robot.move(moves, prior);
-
+    // posterior = robot.move(moves, prior);
     return 0;
 }
 
