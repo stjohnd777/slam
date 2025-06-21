@@ -1,0 +1,9 @@
+[submodule "submodules/external/xtl"]
+	path = submodules/external/xtl
+	url = https://github.com/xtensor-stack/xtl.git
+[submodule "submodules/external/xtensor"]
+	path = submodules/external/xtensor
+	url = https://github.com/xtensor-stack/xtensor.git
+[submodule "submodules/external/matplotlib-cpp"]
+	path = submodules/external/matplotlib-cpp
+	url = https://github.com/lava/matplotlib-cpp.git

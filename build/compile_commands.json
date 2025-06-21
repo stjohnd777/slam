@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/Users/danielst.johnst.john/development/sandbox/cpp/kalman/build",
+  "command": "/usr/bin/c++  -I/Users/danielst.johnst.john/development/sandbox/cpp/kalman/submodules/external/matplotlib-cpp -I/opt/anaconda3/lib/python3.12/site-packages/numpy/core/include -I/Users/danielst.johnst.john/development/sandbox/cpp/kalman/submodules/external/xtl/include -I/Users/danielst.johnst.john/development/sandbox/cpp/kalman/submodules/external/xtensor/include -isystem /opt/anaconda3/include/python3.12 -isystem /opt/homebrew/include/eigen3 -std=gnu++20 -arch arm64 -o CMakeFiles/kalman.dir/main.cpp.o -c /Users/danielst.johnst.john/development/sandbox/cpp/kalman/main.cpp",
+  "file": "/Users/danielst.johnst.john/development/sandbox/cpp/kalman/main.cpp",
+  "output": "CMakeFiles/kalman.dir/main.cpp.o"
+}
+]

@@ -1,0 +1,10 @@
+# syntax=docker/dockerfile:1
+FROM dockcross/linux-arm64 AS crossbuild
+
+RUN apt-get update && apt-get install -y cmake make
+
+WORKDIR /workspace
+COPY . .
+
+ENTRYPOINT ["bash", "-lc", "source /dockcross"]
+CMD ["bash", "-lc", "cmake -DCMAKE_TOOLCHAIN_FILE=/dockcross/toolchain-arm64.cmake . && make"]

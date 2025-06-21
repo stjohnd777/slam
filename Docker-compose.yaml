@@ -1,0 +1,20 @@
+#Docker-compose.yaml
+services:
+  dev:
+    build: .
+    container_name: cpp-dev
+    ports:
+      - "8080:8080"      # REST API (e.g., Crow C++)
+      - "8888:8888"      # Jupyter Notebook
+      - "3000:3000"      # Node.js (Express, Vite, etc.)
+    volumes:
+      - ~/.ssh:/home/dev/.ssh:ro
+      - .:/workspace
+    environment:
+      USER_ID: "${UID}"
+      GROUP_ID: "${GID}"
+    depends_on:
+      - mongo
+    stdin_open: true
+    tty: true
+    command: /entrypoint.sh

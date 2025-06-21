@@ -1,0 +1,11 @@
+# syntax=docker/dockerfile:1
+FROM dockcross/linux-arm64 AS xcompile
+
+# Install needed tools (cmake, etc.)
+RUN apt-get update && apt-get install -y cmake make gcc g++ gettext
+
+WORKDIR /project
+COPY . .
+
+# Entry point to configure cross compile environment
+CMD ["bash", "-lc", "source /dockcross && cmake -DCMAKE_TOOLCHAIN_FILE=/dockcross/toolchain-arm64.cmake . && make"]
