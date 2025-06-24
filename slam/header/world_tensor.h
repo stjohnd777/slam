@@ -11,6 +11,10 @@ namespace dsj {
     template<typename T>
     class WorldIterator;
 
+
+    // Each  pose is represented as a point in N-dimensional space.
+    // Each pose gets N entries (e.g., x₀, x₁, ..., x_{N−1}).
+    // state enum to represent different cell states
     template<typename T>
     class World {
     public:
@@ -22,6 +26,17 @@ namespace dsj {
         explicit World(const std::vector<size_t> &dimensions)
             : space(xt::xarray<T>::from_shape(dimensions)) {
         }
+
+        std::vector<std::vector<size_t> > get_matching_coords(int value) const {
+            std::vector<std::vector<size_t> > coords;
+            for (auto [position, cell]: *this) {
+                if (static_cast<int>(cell.m) == value) {
+                    coords.push_back(position);
+                }
+            }
+            return coords;
+        }
+
 
         bool is_valid_position(const std::vector<size_t> &position) const {
             if (position.size() != space.dimension()) {

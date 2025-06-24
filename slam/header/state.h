@@ -29,25 +29,25 @@ namespace dsj {
 
 
     // State enum to represent different cell states
-    enum class MoveViewState {
-        OPEN, // Robot can move here
-        BLOCKED, // Obstacle or wall
+    enum class CellState {
+        OPEN, // Robot can move here, empty
+        BLOCKED, // Obstacle or wall, not open for movement, blocking line of sight sense
         LANDMARK, // Contains a landmark
         ROBOT, // Robot's current position
     };
 
-    inline std::ostream &operator<<(std::ostream &os, const MoveViewState &state) {
+    inline std::ostream &operator<<(std::ostream &os, const CellState &state) {
         switch (state) {
-            case MoveViewState::OPEN:
+            case CellState::OPEN:
                 os << "."; // Open space
                 break;
-            case MoveViewState::BLOCKED:
+            case CellState::BLOCKED:
                 os << "#"; // Wall/obstacle
                 break;
-            case MoveViewState::LANDMARK:
+            case CellState::LANDMARK:
                 os << "L"; // Landmark
                 break;
-            case MoveViewState::ROBOT:
+            case CellState::ROBOT:
                 os << "R"; // Robot
                 break;
             default:
@@ -76,7 +76,7 @@ namespace dsj {
     };
 
     typedef measurement<ColorStates> color_measurement;
-    typedef measurement<MoveViewState> move_view_measurement;
+    typedef measurement<CellState> cell_measurement;
 
 
     // State class that can hold both the type and additional metadata

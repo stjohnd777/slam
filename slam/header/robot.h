@@ -9,6 +9,10 @@
 #include "world_tensor.h"
 #include <xtensor/misc/xmanipulation.hpp>
 
+
+// robot moves and observes.
+// Each robot pose is represented as a point in N-dimensional space.
+// Each pose gets N entries (e.g., x₀, x₁, ..., x_{N−1}).
 template<typename Measurement, typename T = float>
 class Robot {
     typedef dsj::probability_distribution<T> Prior;

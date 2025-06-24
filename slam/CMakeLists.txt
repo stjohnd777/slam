@@ -5,7 +5,8 @@ file(GLOB_RECURSE PROJECT_HEADERS header/*.h)
 file(GLOB_RECURSE PROJECT_SOURCES src/*.cpp)
 
 
-add_library(lib_slam STATIC ${PROJECT_SOURCES} ${PROJECT_HEADERS})
+add_library(lib_slam STATIC ${PROJECT_SOURCES} ${PROJECT_HEADERS}
+        header/Omega.h)
 
 target_link_libraries(lib_slam
         PUBLIC
